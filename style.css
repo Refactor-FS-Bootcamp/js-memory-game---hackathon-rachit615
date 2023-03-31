@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.memory-game {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  perspective: 1000px;
+}
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.33% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.memory-card:active {
+  transform: scale(0.97);
+  transition: 0.3s;
+}
+/* FLIP class  .....here */
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: blueviolet;
+  border-radius: 5px;
+  padding: 20px;
+}
+.back-face img {
+  width: 90%;
+}
+.front-face {
+  transform: rotateY(180deg);
+}
+body {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+}
